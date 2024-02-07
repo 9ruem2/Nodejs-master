@@ -19,7 +19,9 @@ http.createServer(function(request, response){
             'tasty_cookie=strawberry',
             `Permanent=cookies; Max-Age = ${60*60*24*30}`, // 쿠키를 언제까지 살아있게 할 것인가?
             'Secure=Secure; Secure', // HTTPS로만 통신하는 경우 쿠키를 발급
-            'HttpOnly=HttpOnly; HttpOnly'// 자바스크립트를 이용해 쿠키를 훔치지 못하게 하는 보안솔루션
+            'HttpOnly=HttpOnly; HttpOnly',// 자바스크립트를 이용해 쿠키를 훔치지 못하게 하는 보안솔루션
+            'Path=Path; Path=/cookie', // 특정 경로의 디렉토리 아래서만 쿠키가 활성화되도록 함
+            'Domain=Domain; Domain=o2.org' // o2.org도메인이라면 어디서든 동작할 수 있음
         ]
     });
     response.end('Cookie!!');
