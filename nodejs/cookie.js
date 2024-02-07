@@ -17,7 +17,10 @@ http.createServer(function(request, response){
         'Set-Cookie' : [
             'yummy_cookie=choco', 
             'tasty_cookie=strawberry',
-            `Permanent=cookies; Max-Age = ${60*60*24*30}`]
+            `Permanent=cookies; Max-Age = ${60*60*24*30}`, // 쿠키를 언제까지 살아있게 할 것인가?
+            'Secure=Secure; Secure', // HTTPS로만 통신하는 경우 쿠키를 발급
+            'HttpOnly=HttpOnly; HttpOnly'// 자바스크립트를 이용해 쿠키를 훔치지 못하게 하는 보안솔루션
+        ]
     });
     response.end('Cookie!!');
 
