@@ -4,6 +4,8 @@ const port = 3000;
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var compression = require('express-compression'); // 데이터 압축하는 미들웨어
+var helmet = require('helmet'); // 헬맷이라는 보안솔루션
+app.use(helmet());
 
 var indexRouter = require('./routes/index');
 var topicRouter = require('./routes/topic');
